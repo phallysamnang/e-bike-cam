@@ -1,0 +1,54 @@
+{
+    "version": 2,
+    "framework": null,
+    "installCommand": "npm install",
+    "buildCommand": "npm run vercel-build",
+    "outputDirectory": "public",
+    "functions": {
+        "api/index.php": { "runtime": "vercel-php@0.9.0", "maxDuration": 30 }
+    },
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/storage/(.*)",
+            "dest": "/public/storage/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://motohouse.vercel.app",
+        "APP_KEY": "base64:H/p49zJNoRFWvT1smTOqInir9oK3Jrhw+da7/5sloFo=",
+
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+
+        "DB_CONNECTION": "sqlite",
+        "DB_DATABASE": "/tmp/database.sqlite",
+
+        "CACHE_DRIVER": "array",
+        "CACHE_STORE": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie",
+        "SESSION_SECURE_COOKIE": "true",
+        "SESSION_ENCRYPT": "true",
+        "QUEUE_CONNECTION": "sync",
+
+        "FILESYSTEM_DISK": "vercel-blob",
+        "BLOB_STORE_ID": "store_WR07HIIv9aQOQx1B",
+        "BLOB_READ_WRITE_TOKEN": "vercel_blob_rw_WR07HIIv9aQOQx1B_hNwGffI77z9JvXubwY4KBLxLZV7Wyf",
+        "BLOB_PUBLIC_URL": "https://wr07hiiv9aqoqx1b.public.blob.vercel-storage.com",
+        "COMPOSER_FLAGS": "--no-dev --optimize-autoloader --no-interaction"
+    }
+}
