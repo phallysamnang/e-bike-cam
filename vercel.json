@@ -1,7 +1,7 @@
 {
     "version": 2,
-    "framework": null,
-    "installCommand": "npm install",
+    "framework": "laravel",
+    "installCommand": "npm install && composer install --no-dev --optimize-autoloader --no-interaction",
     "buildCommand": "npm run vercel-build",
     "outputDirectory": "public",
     "functions": {
@@ -24,7 +24,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://vercel.app",
+        "APP_URL": "https://${VERCEL_URL}",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -45,8 +45,6 @@
         "QUEUE_CONNECTION": "sync",
 
         "FILESYSTEM_DISK": "vercel-blob",
-        "BLOB_STORE_ID": "store_WR07HIIv9aQOQx1B",
-        "BLOB_PUBLIC_URL": "https://wr07hiiv9aqoqx1b.public.blob.vercel-storage.com",
         "COMPOSER_FLAGS": "--no-dev --optimize-autoloader --no-interaction"
     }
 }
